@@ -1,0 +1,65 @@
+$canvas-Height:576px;
+$canvas-Width:768px;
+
+*{
+    margin:0;
+    padding: 0;
+}
+
+.body{
+    width: 100%;
+}
+
+.game-screen{
+    //background-image:url(../img/ling.png);
+    background-size: cover;
+    width: 950px;
+    height: 600px;
+    margin: auto;
+}
+
+.canvas{
+    display: block;
+    margin: auto;
+    background-image:url(../img/title.png);
+    background-size: cover;
+
+}
+
+
+.main-window{
+    width: $canvas-Width;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: black;
+    
+    h2{
+        height: 100px;
+        line-height: 100px;
+        width: 70%;
+        text-align: center;
+        animation: blinkStart 2s infinite alternate;
+        font-size: 35px;
+        color: white;
+    }
+    .main-jii{
+        display: none;
+        height: 100%;
+        width: 100px;
+    }
+
+}
+
+
+
+
+
+@keyframes blinkStart{
+ 0%  { color : Black }  /* 33%ごとに色を入れ替え */
+ 33% { color : gray   }
+ 66% { color : Black  }
+ 100%{ color : gray    }
+}
