@@ -22,7 +22,8 @@ $canvas-Width:768px;
     display: block;
     margin: auto;
     background-image:url(../img/title.png);
-    background-size: cover;
+    background-size: 100%;
+    background-repeat: no-repeat;
 
 }
 
