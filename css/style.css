@@ -6,6 +6,22 @@
 .body {
   width: 100%; }
 
+.game-wrapper {
+  width: 1000px;
+  margin: auto;
+  background-color: yellow;
+  border: 20px solid yellow; }
+
+.kyoutai1 {
+  background-image: url(../img/kyoutai1.png);
+  width: 950px;
+  margin: auto; }
+
+.hero {
+  width: 950px;
+  height: 200px;
+  margin: auto; }
+
 .game-screen {
   background-size: cover;
   width: 950px;
@@ -15,14 +31,16 @@
 .canvas {
   display: block;
   margin: auto;
+  border: 5px solid black;
   background-image: url(../img/title.png);
   background-size: 100%;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  background-position: initial; }
 
 .main-window {
-  width: 768px;
+  width: 950px;
   height: 100px;
-  margin: auto;
+  margin: auto auto 20px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -39,6 +57,20 @@
     display: none;
     height: 100%;
     width: 100px; }
+
+.info-window {
+  width: 900px;
+  height: 400px;
+  background-color: #f0e6d5;
+  background-image: url(../img/kyoutai2.png);
+  margin: auto; }
+
+.border {
+  width: 80%;
+  margin: auto;
+  border: 0px;
+  height: 2px;
+  background: linear-gradient(to right, #0277b4, #0277b4 40px, transparent 40px, transparent 48px, #0277b4 48px, #0277b4 56px, transparent 56px, transparent 64px) repeat-x center/64px 2px; }
 
 @keyframes blinkStart {
   0% {

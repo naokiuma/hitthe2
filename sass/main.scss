@@ -5,13 +5,29 @@ $canvas-Width:768px;
     margin:0;
     padding: 0;
 }
-
+ 
 .body{
     width: 100%;
 }
 
+.game-wrapper{
+    width: 1000px;
+    margin: auto;
+    background-color: yellow;
+    border: 20px solid yellow;
+}
+
+.kyoutai1{
+    background-image:url(../img/kyoutai1.png);
+    width: 950px;
+    margin: auto;
+}
+.hero{
+    width: 950px;
+    height: 200px;
+    margin: auto;
+}
 .game-screen{
-    //background-image:url(../img/ling.png);
     background-size: cover;
     width: 950px;
     height: 600px;
@@ -21,17 +37,20 @@ $canvas-Width:768px;
 .canvas{
     display: block;
     margin: auto;
+    border:5px solid black;
     background-image:url(../img/title.png);
     background-size: 100%;
     background-repeat: no-repeat;
+    background-position:initial;
 
 }
 
 
+
 .main-window{
-    width: $canvas-Width;
+    width: 950px;
     height: 100px;
-    margin: auto;
+    margin: auto auto 20px auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -54,7 +73,29 @@ $canvas-Width:768px;
 
 }
 
+.info-window{
+    width: 900px;
+    height: 400px;//仮
+    background-color: #f0e6d5;
+    background-image:url(../img/kyoutai2.png);
+    margin: auto;    
+}
 
+.border{
+    width: 80%;
+    margin: auto;
+    border: 0px;
+    height:2px;
+    background:
+    linear-gradient(
+        to right,
+        #0277b4,#0277b4 40px,
+        transparent 40px,transparent 48px,
+        #0277b4 48px, #0277b4 56px,
+        transparent 56px, transparent 64px
+    )
+    repeat-x center/64px 2px;
+}
 
 
 
