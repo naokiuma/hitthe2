@@ -104,6 +104,10 @@ window.onload = function(){
 };
 
 
+
+
+
+
 // - event メソッド--------------------------------------------------------------------
 
 //マウスカーソル座標の更新
@@ -341,9 +345,11 @@ function gameOver(){
 
 //バトル中のメインの流れ--------------------ーーーーーーーーーー
 function battle_moment(){    
-    if(battle　== true){  
-        //現状のショットの収納。
-        if(fire){
+    if(battle　== true){ 
+
+
+    //まずは現状のショットの収納ーーーーーーーーー
+        if(fire){//パンチが打たれていたらコメント
             var temp = getRandomInt(9);
             if(temp == 0){
                 $('.main-start').text("いいパンチじゃ！");
@@ -365,7 +371,6 @@ function battle_moment(){
                 $('.main-start').text("なんであいつグラブ投げてんの？");
             }
 
-            
             for(i = 0; i < CHARA_SHOT_MAX_COUNT; i++){
                 // 自機ショットが既にセットされているかチェック
                 if(!charaShot[i].alive){
@@ -382,7 +387,7 @@ function battle_moment(){
             ctx.clearRect(0,0,screenCanvas.width,screenCanvas.height);
             hero.charaDrawImage(hero.foot1);
         }   
-//30paramに一度敵の攻撃の設定をセット
+    //30paramに一度敵の攻撃の設定をセット
     ctx.beginPath();
        if(rival.param % 30 === 0){
         // console.log("敵の攻撃");
@@ -398,7 +403,7 @@ function battle_moment(){
         }            
   　ctx.closePath();      
 
-//エネミーショット-------------------
+//エネミーショット------------------------
 ctx.beginPath();
     for(i = 0; i <ENEMY_SHOT_MAX_COUNT; i++){
         // エネミーショットが既に発射されているかチェック
@@ -442,6 +447,10 @@ for(es = 0; es < ENEMY_SHOT_MAX_COUNT; es++){
     }
 }
 
+//エネミーショットここまで------------------------
+
+
+//エネミーの動き------------------------
 
 //ライバルが定期的に動く方向をランダムで変える
 if(rival.param % 100 === 0){
@@ -450,20 +459,25 @@ if(rival.param % 100 === 0){
     switch (tempDirection){
         case 0:
             enemy_moveFlg = "left";
+            rival.move("left");
             break;
         case 1:
             enemy_moveFlg = "right";
+            rival.move("right");
             break;
         case 2:
             enemy_moveFlg = "up";
+            rival.move("up");
             break;
         case 3:
             enemy_moveFlg = "down";
+            rival.move("down");
             break;
     }
 }
 
-//そのままライバルの移動
+
+//そのままライバルの移動/*
 if(enemy_moveFlg == "left"){
     rival.move("left");
     }else if (enemy_moveFlg == "right"){
@@ -473,6 +487,8 @@ if(enemy_moveFlg == "left"){
     }else if (enemy_moveFlg == "down"){
         rival.move("down");
 }
+
+
 //パスの設定を開始
 ctx.beginPath();
 hero.position.x = mouse.x-40;//マウスの中心位置に配置
@@ -482,7 +498,8 @@ drawReadtext(rival.HP,rival.position.x + 25,rival.position.y - 20);
 drawReadtext(hero.HP,hero.position.x + 25,hero.position.y -20);
 
 
-//左クリックしたら玉を打つ------------
+//自身のショット
+//左クリックしたら玉を打つ-------------------------
 for(i = 0; i < CHARA_SHOT_MAX_COUNT; i++){
     // 自機ショットが既に発射されているかチェック
     if(charaShot[i].alive){
@@ -509,15 +526,18 @@ for(i = 0; i < CHARA_SHOT_MAX_COUNT; i++){
             }
             }
         }
-        time++; 
-        if(rival.HP < 1){
-        ctx.clearRect(0,0,screenCanvas.width,screenCanvas.height);
 
-        finish = true;
-        battle = false;
-        finishBattle();
-        }
+
+    //まとめ
+    time++; 
+    if(rival.HP < 1){
+    ctx.clearRect(0,0,screenCanvas.width,screenCanvas.height);
+
+    finish = true;
+    battle = false;
+    finishBattle();//finishバトルに移動。
     }
+}
 };
 
 
